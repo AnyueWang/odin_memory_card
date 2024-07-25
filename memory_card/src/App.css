@@ -1,17 +1,68 @@
+:root {
+  --color-mint: #91DDCF;
+  --color-milk: #F7F9F2;
+  --color-palepink: #E8C5E5;
+  --color-pink: #F19ED2;
+  --background-color: rgb(247, 249, 242, 0.8);
+  --header-footer-background-color: #91DDCF;
+  --card-background-color: #E8C5E5;
+}
+
 body {
   background-image: url('./assets/background.avif');
   background-size: cover;
   text-align: center;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
 #header {
   top: 0;
-  position: absolute;
   width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 20px;
+  background-color: var(--header-footer-background-color);
 }
 
 #footer {
   bottom: 0;
   position: absolute;
   width: 100%;
+  background-color: var(--header-footer-background-color);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#footer p {
+  margin: 0;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  align-items: stretch;
+  justify-items: stretch;
+  padding: 20px 50px;
+}
+
+.card {
+  height: 100px;
+  padding: 10px;
+}
+
+.card-container {
+  background-color: var(--card-background-color);
+}
+
+.content {
+  align-self: center;
+  background-color: var(--background-color);
+  display: flex;
+  justify-self: center;
 }
