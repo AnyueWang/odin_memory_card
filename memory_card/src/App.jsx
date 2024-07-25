@@ -25,7 +25,7 @@ function App() {
       const data = await services.get()
       const randomArr = randomPick(numCards, data.length)
       const cardsArr = []
-      for (let i in randomArr) {
+      for (let i of randomArr) {
         const elementPicked = data[i]
         const elementObject = {
           id: i,
