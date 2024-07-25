@@ -29,9 +29,22 @@ function App() {
         cardsArr.push(elementObject)
       }
       setCards(cardsArr)
+      setScore(0)
     }
     preprocessing()
   }, [reset])
+
+  useEffect(() => {
+    if (cards.length) {
+      console.log(cards)
+      const randomArr = helper.randomPick(numCards, numCards)
+      const cardsNew = []
+      for (let i of randomArr) {
+        cardsNew.push(cards[i])
+      }
+      setCards(cardsNew)
+    }
+  }, [score])
 
   const handleCardClick = (id) => {
     const cardsCopy = Array.from(cards)

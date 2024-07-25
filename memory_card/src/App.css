@@ -61,6 +61,8 @@ h1 {
   align-items: stretch;
   justify-items: stretch;
   padding: 20px 50px;
+  width: 540px;
+  height: 564px;
 }
 
 .card {
@@ -72,6 +74,8 @@ h1 {
   background-color: var(--card-background-color);
   border-radius: 5px;
   transition: all 1s;
+  height: 126px;
+  width: 120px;
 }
 
 .card-container:hover {
