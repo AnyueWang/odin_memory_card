@@ -10,6 +10,9 @@ function App() {
   const numCards = 16
   const [cards, setCards] = useState([])
   const [score, setScore] = useState(0)
+  const [reset, setReset] = useState(false) //when toggling reset, game is reset. (the boolean value here means nothing)
+
+  const toggleReset = () => setReset(!reset)
 
   useEffect(() => {
     const preprocessing = async () => {
@@ -28,7 +31,7 @@ function App() {
       setCards(cardsArr)
     }
     preprocessing()
-  }, [])
+  }, [reset])
 
   const handleCardClick = (id) => {
     const cardsCopy = Array.from(cards)
@@ -36,14 +39,16 @@ function App() {
     if (targetCard.clicked) {
       console.log('you lose, score: ', score)
       setScore(0)
+      toggleReset()
     } else {
       const newScore = score + 1
       if (newScore === numCards) {
         console.log('you win')
         setScore(0)
+        toggleReset()
       } else {
         console.log(newScore)
-        targetCard.clicked = true 
+        targetCard.clicked = true
         setScore(newScore)
         setCards(cardsCopy)
       }
