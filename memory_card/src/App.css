@@ -8,18 +8,21 @@
   --card-background-color: #E8C5E5;
   --card-hover-background-color: #F19ED2;
   --header-footer-color: grey;
+  background-image: url('./assets/background.avif');
+  background-size: cover;
+  background-repeat: repeat;
+  background-attachment: fixed;
 }
 
 body {
-  background-image: url('./assets/background.avif');
-  background-size: cover;
   text-align: center;
 }
 
 #root {
   display: flex;
   flex-direction: column;
-  align-self: center;
+  justify-content: space-between;
+  height: 100vh;
 }
 
 #header {
@@ -29,6 +32,7 @@ body {
   padding-bottom: 30px;
   margin-bottom: 20px;
   background-color: var(--header-footer-background-color);
+  position: sticky;
 }
 
 h1 {
@@ -37,11 +41,12 @@ h1 {
 
 #footer {
   bottom: 0;
-  position: absolute;
+  position: sticky;
   width: 100%;
   background-color: var(--header-footer-background-color);
   padding-top: 20px;
   padding-bottom: 40px;
+  margin-top: 20px;
 }
 
 #footer p {

@@ -29,7 +29,8 @@ function App() {
         const elementPicked = data[i]
         const elementObject = {
           id: i,
-          image_url: elementPicked.image_url
+          image_url: elementPicked.image_url,
+          clicked: false
         }
         cardsArr.push(elementObject)
       }
