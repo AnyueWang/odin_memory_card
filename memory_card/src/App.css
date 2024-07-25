@@ -6,6 +6,7 @@
   --background-color: rgb(247, 249, 242, 0.8);
   --header-footer-background-color: #91DDCF;
   --card-background-color: #E8C5E5;
+  --header-footer-color: grey;
 }
 
 body {
@@ -29,17 +30,22 @@ body {
   background-color: var(--header-footer-background-color);
 }
 
+h1 {
+  color: var(--header-footer-color);
+}
+
 #footer {
   bottom: 0;
   position: absolute;
   width: 100%;
   background-color: var(--header-footer-background-color);
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
 }
 
 #footer p {
   margin: 0;
+  color: var(--header-footer-color);
 }
 
 .board {

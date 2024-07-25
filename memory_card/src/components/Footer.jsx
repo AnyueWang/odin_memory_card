@@ -1,8 +1,7 @@
 const Footer = () => {
   return (
     <div id="footer">
-      <p>© 2024 Memory Card. Created By Anyue Wang. All Rights Reserved.</p>
-      <p>Cards of Animal Crossing are provided by <a href="https://api.nookipedia.com/">Nookipedia API.</a> </p>
+      <p>© 2024 Memory Card created By Anyue Wang. All Rights Reserved. Images are supported by <a href="https://api.nookipedia.com/">Nookipedia API.</a> </p>
     </div>
   )
 }
