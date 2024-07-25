@@ -7,6 +7,7 @@ import services from './services'
 function App() {
   const numCards = 16
   const [cards, setCards] = useState([])
+  const [score, setScore] = useState(0)
 
   const randomPick = (num, total) => {
     const arrTotal = Array.from(Array(total).keys())
@@ -37,13 +38,16 @@ function App() {
     preprocessing()
   }, [])
 
-  console.log(cards)
-
   return (
     <>
       <Header />
-      <div>
-
+      <div className='content'>
+        <div className='board'>
+          {cards.map((eachCard) => (<div className='card-container' key={eachCard.id}>
+            <img className='card' src={eachCard.image_url} />
+          </div>)
+          )}
+        </div>
       </div>
       <Footer />
     </>
