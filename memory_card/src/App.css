@@ -6,6 +6,7 @@
   --background-color: rgb(247, 249, 242, 0.8);
   --header-footer-background-color: #91DDCF;
   --card-background-color: #E8C5E5;
+  --card-hover-background-color: #F19ED2;
   --header-footer-color: grey;
 }
 
@@ -64,6 +65,13 @@ h1 {
 
 .card-container {
   background-color: var(--card-background-color);
+  border-radius: 5px;
+  transition: all 1s;
+}
+
+.card-container:hover {
+  background-color: var(--card-hover-background-color);
+  box-shadow: 0 4px 8px 0 var(--color-mint), 0 6px 20px 0 var(--color-mint);
 }
 
 .content {
