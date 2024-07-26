@@ -8,6 +8,8 @@
   --card-background-color: #E8C5E5;
   --card-hover-background-color: #F19ED2;
   --header-footer-color: grey;
+  --dialog-color: grey;
+
   background-image: url('./assets/background.avif');
   background-size: cover;
   background-repeat: repeat;
@@ -88,4 +90,17 @@ h1 {
   background-color: var(--background-color);
   display: flex;
   justify-self: center;
+}
+
+.result-dialog {
+  background-color: var(--color-mint);
+  color: var(--dialog-color);
+  position: absolute;
+  top: 40%;
+  padding: 30px;
+}
+
+.btn-dialog-ok {
+  margin-top: 20px;
+  background-color: var(--color-milk);
 }

@@ -11,6 +11,7 @@ function App() {
   const [cards, setCards] = useState([])
   const [score, setScore] = useState(0)
   const [reset, setReset] = useState(false) //when toggling reset, game is reset. (the boolean value here means nothing)
+  const [result, setResult] = useState(null)
 
   const toggleReset = () => setReset(!reset)
 
@@ -30,13 +31,13 @@ function App() {
       }
       setCards(cardsArr)
       setScore(0)
+      setResult(null)
     }
     preprocessing()
   }, [reset])
 
   useEffect(() => {
     if (cards.length) {
-      console.log(cards)
       const randomArr = helper.randomPick(numCards, numCards)
       const cardsNew = []
       for (let i of randomArr) {
@@ -47,18 +48,19 @@ function App() {
   }, [score])
 
   const handleCardClick = (id) => {
+    if (result!==null) return
     const cardsCopy = Array.from(cards)
     const targetCard = cardsCopy.find(eachCard => eachCard.id === id)
     if (targetCard.clicked) {
       console.log('you lose, score: ', score)
       setScore(0)
-      toggleReset()
+      setResult(false)
     } else {
       const newScore = score + 1
       if (newScore === numCards) {
         console.log('you win')
         setScore(0)
-        toggleReset()
+        setResult(true)
       } else {
         console.log(newScore)
         targetCard.clicked = true
@@ -73,6 +75,14 @@ function App() {
       <Header />
       <div className='content'>
         <Board cards={cards} handleCardClick={handleCardClick} />
+        <dialog className='result-dialog' open={result!==null}>
+          <div>
+          {result ? 'Congratulations, you win!' : 'Sorry, you lose!'}
+          <br />
+          Press &quot;OK&quot; to reset the game.
+          </div>
+          <button className='btn-dialog-ok' onClick={toggleReset}>OK</button>
+        </dialog>
       </div>
       <Footer />
     </>
