@@ -24,10 +24,9 @@ function App() {
       const randomArr = helper.randomPick(numCards, data.length)
       const cardsArr = []
       for (let i of randomArr) {
-        const elementPicked = data[i]
         const elementObject = {
           id: i,
-          image_url: elementPicked.image_url,
+          image_url: data[i].image_url,
           clicked: false
         }
         cardsArr.push(elementObject)
@@ -55,18 +54,15 @@ function App() {
     const cardsCopy = Array.from(cards)
     const targetCard = cardsCopy.find(eachCard => eachCard.id === id)
     if (targetCard.clicked) {
-      console.log('you lose, score: ', score)
       setResult(false)
       if (score>bestScore) setBestScore(score)
     } else {
       const newScore = score + 1
       if (newScore === numCards) {
-        console.log('you win')
         setScore(newScore)
         setResult(true)
         setBestScore(numCards)
       } else {
-        console.log(newScore)
         targetCard.clicked = true
         setScore(newScore)
         setCards(cardsCopy)
