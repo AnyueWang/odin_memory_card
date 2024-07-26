@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import Board from './components/Board'
 import services from './utilis/services'
 import helper from './utilis/helper'
+import Dialog from './components/Dialog'
 
 function App() {
   const numCards = 16
@@ -75,14 +76,7 @@ function App() {
       <Header />
       <div className='content'>
         <Board cards={cards} handleCardClick={handleCardClick} />
-        <dialog className='result-dialog' open={result!==null}>
-          <div>
-          {result ? 'Congratulations, you win!' : 'Sorry, you lose!'}
-          <br />
-          Press &quot;OK&quot; to reset the game.
-          </div>
-          <button className='btn-dialog-ok' onClick={toggleReset}>OK</button>
-        </dialog>
+        <Dialog result={result} onClick={toggleReset} />
       </div>
       <Footer />
     </>
