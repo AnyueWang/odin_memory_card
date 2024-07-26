@@ -9,6 +9,7 @@
   --card-hover-background-color: #F19ED2;
   --header-footer-color: grey;
   --dialog-color: grey;
+  --p-color: grey;
 
   background-image: url('./assets/background.avif');
   background-size: cover;
@@ -25,6 +26,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
+  min-width: 1200px;
 }
 
 #header {
@@ -90,6 +92,9 @@ h1 {
   background-color: var(--background-color);
   display: flex;
   justify-self: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
 }
 
 .result-dialog {
@@ -103,4 +108,28 @@ h1 {
 .btn-dialog-ok {
   margin-top: 20px;
   background-color: var(--color-milk);
+}
+
+.explanation-container {
+  width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rule {
+  font-size: 20px;
+  color: var(--p-color);
+}
+
+.result {
+  display: flex;
+  gap: 50px;
+  font-weight: 700;
+}
+
+.result > p {
+  font-size: 20px;
+  margin: 0;
+  color: var(--p-color);
 }

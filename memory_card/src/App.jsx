@@ -6,6 +6,7 @@ import Board from './components/Board'
 import services from './utilis/services'
 import helper from './utilis/helper'
 import Dialog from './components/Dialog'
+import Explanation from './components/Explanation'
 
 function App() {
   const numCards = 16
@@ -13,6 +14,7 @@ function App() {
   const [score, setScore] = useState(0)
   const [reset, setReset] = useState(false) //when toggling reset, game is reset. (the boolean value here means nothing)
   const [result, setResult] = useState(null)
+  const [bestScore, setBestScore] = useState(0)
 
   const toggleReset = () => setReset(!reset)
 
@@ -54,14 +56,15 @@ function App() {
     const targetCard = cardsCopy.find(eachCard => eachCard.id === id)
     if (targetCard.clicked) {
       console.log('you lose, score: ', score)
-      setScore(0)
       setResult(false)
+      if (score>bestScore) setBestScore(score)
     } else {
       const newScore = score + 1
       if (newScore === numCards) {
         console.log('you win')
-        setScore(0)
+        setScore(newScore)
         setResult(true)
+        setBestScore(numCards)
       } else {
         console.log(newScore)
         targetCard.clicked = true
@@ -75,6 +78,7 @@ function App() {
     <>
       <Header />
       <div className='content'>
+        <Explanation score={score} bestScore={bestScore} />
         <Board cards={cards} handleCardClick={handleCardClick} />
         <Dialog result={result} onClick={toggleReset} />
       </div>
